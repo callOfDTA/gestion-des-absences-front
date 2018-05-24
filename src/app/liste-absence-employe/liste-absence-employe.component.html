@@ -1,0 +1,22 @@
+<h1>Mes Absences</h1>
+
+
+<table class="table">
+  <tr>
+    <th>Date de Debut</th>
+    <th>Date de Fin</th>
+    <th>Type</th>
+    <th>Statut</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let a of absences" class="ml-5 ">
+      <td>{{a.dateDebut.year +" " + a.dateDebut.month + " " + a.dateDebut.dayOfMonth}}</td>
+      <td>{{a.dateFin.year +" " + a.dateFin.month + " " + a.dateFin.dayOfMonth}}</td>
+      <td>{{a.typeConge}}</td>
+      <td>{{a.statut}}</td>
+      <td>action</td>
+    </tr>
+
+  </tbody>
+</table>
