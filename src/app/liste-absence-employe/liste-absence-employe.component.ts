@@ -5,7 +5,8 @@ import {
   RouterModule,
   Routes,
   ActivatedRoute,
-  ParamMap
+  ParamMap,
+  Router
 } from "@angular/router";
 
 @Component({
@@ -15,37 +16,27 @@ import {
 })
 export class ListeAbsenceEmployeComponent implements OnInit {
   absences: Absence[] = [];
-  collaborateur: Collaborateur;
+  collaborateurs: Collaborateur[] = [];
   RTT: number = 0;
+  cmpt: boolean = false;
   matricule: string = "";
   constructor(
     private absenceService: AbsenceService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private router: Router
   ) {}
+  onClickNewAbsence() {
+    this.router.navigate(["/absence/", this.matricule, "/nouveau"]);
+  }
 
   ngOnInit() {
     this.matricule = this._route.snapshot.paramMap.get("matricule");
-    this.absenceService.listerAbsenceEmploye(this.matricule).subscribe(
-      abs => {
-        this.absences = abs;
-        abs.map(abs => (this.collaborateur = abs._collaborateur));
-        this.RTT = this.collaborateur.jourRTT;
-      },
+    this.absenceService
+      .listerAbsenceEmploye(this.matricule)
+      .subscribe(abs => (this.absences = abs), err => console.log(err));
 
-      err => console.log(err)
-    );
+    this.absenceService
+      .listerCollaborateur()
+      .subscribe(cols => (this.collaborateurs = cols), err => console.log(err));
   }
 }
-
-//console.log(this.absences);
-/*this.collaborateur = abs
-            .map(abs => abs._collaborateur)
-            .find(
-              col =>
-                col.matricule ==
-                this._route.snapshot.paramMap.get("matricule")
-            );
-          console.log(this.collaborateur);
-
-          //console.log(this.collab);
-          this.RTT = this.collaborateur.jourRTT;*/
