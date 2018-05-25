@@ -15,26 +15,37 @@ import {
 })
 export class ListeAbsenceEmployeComponent implements OnInit {
   absences: Absence[] = [];
+  collaborateur: Collaborateur;
+  RTT: number = 0;
+  matricule: string = "";
   constructor(
     private absenceService: AbsenceService,
     private _route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    /*this.absences = [
-      new Absence(
-        "10-12-2018",
-        "30-12-2018",
-        EnumType.CONGE_SANS_SOLDE,
-        EnumStatut.EN_ATTENTE
-      ),
-      new Absence("01-12-2018", "10-12-2018", EnumType.RTT, EnumStatut.REJETEE)
-    ];*/
-    /*this.absenceService.listerAbsence().subscribe(abs => (this.absences = abs)),
-      err => console.log(err);*/
-    console.log(this._route.snapshot.paramMap.get("matricule"));
-    this.absenceService
-      .listerAbsenceEmploye(this._route.snapshot.paramMap.get("matricule"))
-      .subscribe(abs => (this.absences = abs), err => console.log(err));
+    this.matricule = this._route.snapshot.paramMap.get("matricule");
+    this.absenceService.listerAbsenceEmploye(this.matricule).subscribe(
+      abs => {
+        this.absences = abs;
+        abs.map(abs => (this.collaborateur = abs._collaborateur));
+        this.RTT = this.collaborateur.jourRTT;
+      },
+
+      err => console.log(err)
+    );
   }
 }
+
+//console.log(this.absences);
+/*this.collaborateur = abs
+            .map(abs => abs._collaborateur)
+            .find(
+              col =>
+                col.matricule ==
+                this._route.snapshot.paramMap.get("matricule")
+            );
+          console.log(this.collaborateur);
+
+          //console.log(this.collab);
+          this.RTT = this.collaborateur.jourRTT;*/

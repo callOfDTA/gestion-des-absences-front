@@ -20,3 +20,18 @@
 
   </tbody>
 </table>
+
+<form>
+  <div class="form-group row">
+    <label for="RTT" class="col-sm-2 col-form-label">RTT Restant :</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="RTT" value={{RTT}}>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="CongePaye" class="col-sm-2 col-form-label">RTT Restant :</label>
+    <div class="col-sm-10" *ngFor="let a of absences">
+      <input type="text" readonly class="form-control-plaintext" id="CongePaye" value="{{a.collaborateur.jourCongePaye}}">
+    </div>
+  </div>
+</form>
