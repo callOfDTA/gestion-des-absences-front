@@ -26,9 +26,13 @@ export enum EnumType {
 }
 
 export class Collaborateur {
-  _matricule: string;
+  matricule: string;
+  jourRTT: number;
+  jourCongePaye: number;
 
-  constructor(matricule) {
-    this._matricule = matricule;
+  constructor(matricule, RTT, CP) {
+    this.matricule = matricule;
+    this.jourRTT = RTT;
+    this.jourCongePaye = CP;
   }
 }

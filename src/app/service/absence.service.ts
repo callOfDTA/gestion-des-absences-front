@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 import { Observable, Subject, ReplaySubject } from "rxjs";
 import { Absence, EnumStatut, EnumType, Collaborateur } from "../model";
-
+import { map } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 
 const URL_BACKEND = environment.apiUrl;
@@ -20,5 +20,9 @@ export class AbsenceService {
     return this._http.get<Absence[]>(
       `${URL_BACKEND}/absences?collaborateur=${matricule}`
     );
+  }
+
+  listerCollaborateur(): Observable<Collaborateur[]> {
+    return this._http.get<Collaborateur[]>(`${URL_BACKEND}/collaborateurs`);
   }
 }

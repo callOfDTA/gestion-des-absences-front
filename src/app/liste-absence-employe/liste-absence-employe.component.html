@@ -20,13 +20,14 @@
 
   </tbody>
 </table>
+Nouvelle absences :
 <button class="btn btn-primary" (click)=onClickNewAbsence()>+</button>
 
 <form>
   <div class=" form-group row ">
     <label for="CongePaye " class="col-sm-3 col-form-label ">RTT Restant :</label>
     <div *ngFor="let c of collaborateurs ">
-      <div *ngIf="c.matricule==m atricule ">
+      <div *ngIf="c.matricule==matricule ">
         <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourRTT}} ">
       </div>
     </div>
@@ -34,7 +35,7 @@
   <div class="form-group row ">
     <label for="CongePaye " class="col-sm-3 col-form-label ">Conge Payé Restant :</label>
     <div *ngFor="let c of collaborateurs ">
-      <div *ngIf="c.matricule==m atricule ">
+      <div *ngIf="c.matricule==matricule ">
         <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourCongePaye}} ">
       </div>
     </div>

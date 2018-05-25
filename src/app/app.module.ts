@@ -16,6 +16,11 @@ const appRoutes: Routes = [
 
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
 
+  {
+    path: "absence/:matricule/nouvelle",
+    component: DemoComponent
+  },
+
   { path: "", redirectTo: "/demo", pathMatch: "full" },
 
   { path: "**", redirectTo: "/demo", pathMatch: "full" } // page non trouvée
