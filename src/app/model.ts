@@ -1,17 +1,9 @@
 export class Absence {
-  dateDebut: Date;
-  dateFin: Date;
+  dateDebut: string;
+  dateFin: string;
   typeConge: EnumType;
   statut: EnumStatut;
   collaborateur: Collaborateur;
-
-  constructor(dateDebut, dateFin, typeConge, statut, collaborateur) {
-    this.dateDebut = dateDebut;
-    this.dateFin = dateFin;
-    this.typeConge = typeConge;
-    this.statut = statut;
-    this.collaborateur = collaborateur;
-  }
 }
 
 export enum EnumStatut {

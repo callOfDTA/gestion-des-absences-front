@@ -19,13 +19,14 @@ import { ListeAbsenceEmployeComponent } from "./liste-absence-employe/liste-abse
 import { DemoComponent } from "./demo/demo.component";
 import { PlanningAbsencesComponent } from './planning-absences/planning-absences.component';
 import { CalendrierHeaderComponent } from './calendrier-header/calendrier-header.component';
-import { Demo006Component } from "./demo006/demo006.component";
+
 import { DemandeAbsenceComponent } from "./demande-absence/demande-absence.component";
 
 import { AbsenceService } from "./service/absence.service";
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { ModificationAbsenceComponent } from './modification-absence/modification-absence.component';
 
 registerLocaleData(localeFr);
 
@@ -33,7 +34,6 @@ const appRoutes: Routes = [
   //{ path: "accueil", component: AccueilComponent },
 
   { path: "demo", component: DemoComponent },
-  { path: "demo", component: Demo006Component },
   { path: "absence/nouveau", component: DemandeAbsenceComponent },
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent},
@@ -52,9 +52,9 @@ const appRoutes: Routes = [
     DemoComponent,
     PlanningAbsencesComponent,
     CalendrierHeaderComponent,
-    Demo006Component,
     DemandeAbsenceComponent,
-    DateTimePickerComponent],
+    DateTimePickerComponent,
+    ModificationAbsenceComponent],
   imports: [
     CommonModule,
     BrowserModule,

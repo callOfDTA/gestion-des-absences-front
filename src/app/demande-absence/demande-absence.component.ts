@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Absence } from "../models";
-import { AbsenceService } from "../services/absence.service";
+import { Absence } from "../model";
+import { AbsenceService } from "../service/absence.service";
 import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
