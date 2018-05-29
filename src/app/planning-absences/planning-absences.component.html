@@ -1,0 +1,55 @@
+<h1>Planning des absences</h1>
+
+<app-calendrier-header
+  [(view)]="view"
+  [(viewDate)]="viewDate"
+  [locale]="locale">
+</app-calendrier-header>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="'month'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [locale]="locale">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="'week'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [locale]="locale">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="'day'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [locale]="locale">
+  </mwl-calendar-day-view>
+</div>
+
+<form>
+  <div class="form-group row">
+    <label for="CongePaye" class="col-sm-3 col-form-label">RTT employé Restant :</label>
+    <div *ngFor="let c of collaborateurs">
+      <div *ngIf="c.matricule==matricule">
+        <input type="text " readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourRTTEmploye}}">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="CongePaye" class="col-sm-3 col-form-label">RTT employeur Restant :</label>
+    <div *ngFor="let c of collaborateurs">
+      <div *ngIf="c.matricule==matricule">
+        <input type="text " readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourRTTEmployeur}}">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="CongePaye" class="col-sm-3 col-form-label">Conge Payé Restant :</label>
+    <div *ngFor="let c of collaborateurs">
+      <div *ngIf="c.matricule==matricule">
+        <input type="text " readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourCongePaye}}">
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,7 +1,6 @@
 <router-outlet></router-outlet>
 <h1>Mes Absences</h1>
 
-
 <table class="table">
   <tr>
     <th>Date de Debut</th>
@@ -32,20 +31,19 @@ Nouvelle absences :
 
 <form>
   <div class=" form-group row ">
-    <label for="CongePaye " class="col-sm-3 col-form-label ">RTT Restant :</label>
-    <div *ngFor="let c of collaborateurs ">
-      <div *ngIf="c.matricule==matricule ">
-        <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourRTT}} ">
+    <label for="CongePaye" class="col-sm-3 col-form-label">RTT Restant :</label>
+    <div *ngFor="let c of collaborateurs">
+      <div *ngIf="c.matricule==matricule">
+        <input type="text" readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourRTT}}">
       </div>
     </div>
   </div>
-  <div class="form-group row ">
-    <label for="CongePaye " class="col-sm-3 col-form-label ">Conge Payé Restant :</label>
-    <div *ngFor="let c of collaborateurs ">
-      <div *ngIf="c.matricule==matricule ">
-        <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourCongePaye}} ">
+  <div class="form-group row">
+    <label for="CongePaye" class="col-sm-3 col-form-label">Conge Payé Restant :</label>
+    <div *ngFor="let c of collaborateurs">
+      <div *ngIf="c.matricule==matricule">
+        <input type="text" readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourCongePaye}}">
       </div>
     </div>
   </div>
-
 </form>
