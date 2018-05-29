@@ -4,6 +4,7 @@ export class Absence {
   typeConge: EnumType;
   statut: EnumStatut;
   collaborateur: Collaborateur;
+  motif:string;
 }
 
 export enum EnumStatut {
