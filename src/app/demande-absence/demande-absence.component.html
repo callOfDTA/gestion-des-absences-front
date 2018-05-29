@@ -36,7 +36,7 @@
       <span>{{msgError.date}}</span>
     </div>
     <div>
-      <div *ngIf=" absence.dateDebut != null &&  absence.dateFin != null && absence.typeConge != null  && absence.typeConge != '' && absence.dateFin > absence.dateDebut;else cache">
+      <div *ngIf=" absence.dateDebut != null &&  absence.dateFin != null && absence.typeConge != null && absence.dateFin > absence.dateDebut;else cache">
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
       </div>
       <ng-template #cache>
