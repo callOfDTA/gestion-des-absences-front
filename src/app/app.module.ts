@@ -16,12 +16,9 @@ const appRoutes: Routes = [
 
   { path: "demo", component: DemoComponent },
   { path: "demo", component: Demo006Component },
-  { path: "absence/nouveau", component: DemandeAbsenceComponent }
+  { path: "absence/nouveau", component: DemandeAbsenceComponent },
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
-  {
-    path: "absences/:matricule/nouvelle",
-    component: DemandeAbsenceComponent
-  },
+  { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent},
 
   { path: "", redirectTo: "/demo", pathMatch: "full" },
 
