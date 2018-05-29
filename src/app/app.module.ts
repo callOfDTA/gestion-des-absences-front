@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
 
   {
-    path: "absence/:matricule/nouvelle",
+    path: "absences/:matricule/nouvelle",
     component: DemoComponent
   },
 

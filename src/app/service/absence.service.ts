@@ -25,4 +25,12 @@ export class AbsenceService {
   listerCollaborateur(): Observable<Collaborateur[]> {
     return this._http.get<Collaborateur[]>(`${URL_BACKEND}/collaborateurs`);
   }
+
+  listerAbsenceID(id: number): Observable<Absence> {
+    return this._http.get<Absence>(`${URL_BACKEND}/absences/${id}`);
+  }
+
+  supprimerparabsence(id): Observable<any> {
+    return this._http.post<any>(`${URL_BACKEND}/absences/${id}`, id.valueOf());
+  }
 }

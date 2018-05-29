@@ -10,18 +10,24 @@
     <th>Action</th>
   </tr>
   <tbody>
-    <tr *ngFor="let a of absences" class="ml-5 ">
+    <tr *ngFor="let a of absences" class="ml-5">
+
       <td>{{a.dateDebut.year +" " + a.dateDebut.month + " " + a.dateDebut.dayOfMonth}}</td>
       <td>{{a.dateFin.year +" " + a.dateFin.month + " " + a.dateFin.dayOfMonth}}</td>
       <td>{{a.typeConge}}</td>
       <td>{{a.statut}}</td>
-      <td>action</td>
+      <td class="row">
+        <div *ngIf="a.statut == 'INITIALE' && a.type != 'MISSION'">
+          <img src="http://www.icone-png.com/png/28/27952.png" alt=modifier (click)=onClickmodifie(a.id)>
+        </div>
+        <img src="http://www.icone-png.com/png/54/54145.png" alt=supprimer (click)=onClicksupprimer(a.id)>
+      </td>
     </tr>
 
   </tbody>
 </table>
 Nouvelle absences :
-<button class="btn btn-primary" (click)=onClickNewAbsence()>+</button>
+<button class=" btn btn-primary " (click)=onClickNewAbsence()>+</button>
 
 <form>
   <div class=" form-group row ">
