@@ -9,7 +9,7 @@ import { HttpErrorResponse } from "@angular/common/http";
   styleUrls: ["./demande-absence.component.css"]
 })
 export class DemandeAbsenceComponent implements OnInit {
-  absence: Absence = new Absence("", "", null, null, "", null);
+  absence: Absence = new Absence();
   submitted = false;
   msgError:any ={
     date : "",

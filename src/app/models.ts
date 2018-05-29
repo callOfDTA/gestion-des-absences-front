@@ -1,6 +1,10 @@
 export class Absence {
-  constructor(dateDebut:string,dateFin:string,typeConge:EnumType,statut:EnumStatut,motif:string, collaborateur:Collaborateur) {
-  }
+  dateDebut:string
+  dateFin:string
+  typeConge:EnumType
+  statut:EnumStatut
+  motif:string
+  collaborateur:Collaborateur
 }
 
 export class Collaborateur{
