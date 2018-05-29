@@ -1,0 +1,51 @@
+<router-outlet></router-outlet>
+<h1>Mes Absences</h1>
+
+
+<table class="table">
+  <tr>
+    <th>Date de Debut</th>
+    <th>Date de Fin</th>
+    <th>Type</th>
+    <th>Statut</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let a of absences" class="ml-5">
+
+      <td>{{a.dateDebut}}</td>
+      <td>{{a.dateFin}}</td>
+      <td>{{a.typeConge}}</td>
+      <td>{{a.statut}}</td>
+      <td class="row">
+        <div *ngIf="a.statut == 'INITIALE' && a.type != 'MISSION'">
+          <img src="http://www.icone-png.com/png/28/27952.png" alt=modifier (click)=onClickmodifie(a.id)>
+        </div>
+        <img src="http://www.icone-png.com/png/54/54145.png" alt=supprimer (click)=onClicksupprimer(a.id)>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+Nouvelle absences :
+<button class=" btn btn-primary " (click)=onClickNewAbsence()>+</button>
+
+<form>
+  <div class=" form-group row ">
+    <label for="CongePaye " class="col-sm-3 col-form-label ">RTT Restant :</label>
+    <div *ngFor="let c of collaborateurs ">
+      <div *ngIf="c.matricule==matricule ">
+        <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourRTT}} ">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row ">
+    <label for="CongePaye " class="col-sm-3 col-form-label ">Conge Payé Restant :</label>
+    <div *ngFor="let c of collaborateurs ">
+      <div *ngIf="c.matricule==matricule ">
+        <input type="text " readonly class="form-control-plaintext " id="CongePaye " value="{{c.jourCongePaye}} ">
+      </div>
+    </div>
+  </div>
+
+</form>
