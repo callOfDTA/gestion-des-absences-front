@@ -19,6 +19,7 @@ export class ListeAbsenceEmployeComponent implements OnInit {
   collaborateurs: Collaborateur[] = [];
   matricule: string = "";
   collaborateurForm: any = {};
+  flag: boolean = false;
   constructor(
     private absenceService: AbsenceService,
     private _route: ActivatedRoute,
@@ -34,6 +35,7 @@ export class ListeAbsenceEmployeComponent implements OnInit {
     this.absenceService
       .supprimerparabsence(id)
       .subscribe(err => console.log(err));
+    this.router.navigate(["/absences/", this.matricule]);
   }
 
   ngOnInit() {
