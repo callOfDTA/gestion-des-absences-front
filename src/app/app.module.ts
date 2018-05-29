@@ -28,7 +28,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, ListeAbsenceEmployeComponent, DemoComponent],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: "reload" })
+  ],
   providers: [AbsenceService],
   bootstrap: [AppComponent]
 })

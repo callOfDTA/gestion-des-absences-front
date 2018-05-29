@@ -1,6 +1,6 @@
 export class Absence {
-  _dateDebut: Date;
-  _dateFin: Date;
+  _dateDebut: string;
+  _dateFin: string;
   _typeConge: EnumType;
   _statut: EnumStatut;
   _collaborateur: Collaborateur;

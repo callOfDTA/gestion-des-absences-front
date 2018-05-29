@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <h1>Mes Absences</h1>
 
 
@@ -12,8 +13,8 @@
   <tbody>
     <tr *ngFor="let a of absences" class="ml-5">
 
-      <td>{{a.dateDebut.year +" " + a.dateDebut.month + " " + a.dateDebut.dayOfMonth}}</td>
-      <td>{{a.dateFin.year +" " + a.dateFin.month + " " + a.dateFin.dayOfMonth}}</td>
+      <td>{{a.dateDebut}}</td>
+      <td>{{a.dateFin}}</td>
       <td>{{a.typeConge}}</td>
       <td>{{a.statut}}</td>
       <td class="row">
