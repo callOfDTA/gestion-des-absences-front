@@ -19,6 +19,8 @@ import { ListeAbsenceEmployeComponent } from "./liste-absence-employe/liste-abse
 import { DemoComponent } from "./demo/demo.component";
 import { PlanningAbsencesComponent } from './planning-absences/planning-absences.component';
 import { CalendrierHeaderComponent } from './calendrier-header/calendrier-header.component';
+import { Demo006Component } from "./demo006/demo006.component";
+import { DemandeAbsenceComponent } from "./demande-absence/demande-absence.component";
 
 import { AbsenceService } from "./service/absence.service";
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
@@ -31,13 +33,10 @@ const appRoutes: Routes = [
   //{ path: "accueil", component: AccueilComponent },
 
   { path: "demo", component: DemoComponent },
-
+  { path: "demo", component: Demo006Component },
+  { path: "absence/nouveau", component: DemandeAbsenceComponent },
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
-
-  {
-    path: "absence/:matricule/nouvelle",
-    component: DemoComponent
-  },
+  { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent},
 
   { path: "planning", component: PlanningAbsencesComponent },
 
@@ -53,13 +52,15 @@ const appRoutes: Routes = [
     DemoComponent,
     PlanningAbsencesComponent,
     CalendrierHeaderComponent,
+    Demo006Component,
+    DemandeAbsenceComponent,
     DateTimePickerComponent],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: "reload" }),
     NgbDatepickerModule.forRoot(),
     NgbTimepickerModule.forRoot(),
     CalendarModule.forRoot()],
