@@ -17,16 +17,23 @@ import {
 export class ListeAbsenceEmployeComponent implements OnInit {
   absences: Absence[] = [];
   collaborateurs: Collaborateur[] = [];
-  RTT: number = 0;
-  cmpt: boolean = false;
   matricule: string = "";
+  collaborateurForm: any = {};
   constructor(
     private absenceService: AbsenceService,
     private _route: ActivatedRoute,
     private router: Router
   ) {}
   onClickNewAbsence() {
-    this.router.navigate(["/absence/", this.matricule, "/nouveau"]);
+    this.router.navigate(["/absences/", this.matricule, "/nouveau"]);
+  }
+  onClickmodifie(id) {
+    this.router.navigate(["/absences/", this.matricule, "/modifie/", id]);
+  }
+  onClicksupprimer(id) {
+    this.absenceService
+      .supprimerparabsence(id)
+      .subscribe(err => console.log(err));
   }
 
   ngOnInit() {
