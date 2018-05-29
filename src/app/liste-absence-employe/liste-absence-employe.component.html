@@ -34,7 +34,7 @@ Nouvelle absences :
     <label for="CongePaye" class="col-sm-3 col-form-label">RTT Restant :</label>
     <div *ngFor="let c of collaborateurs">
       <div *ngIf="c.matricule==matricule">
-        <input type="text" readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourRTT}}">
+        <input type="text" readonly class="form-control-plaintext" id="CongePaye" value="{{c.jourRTTEmploye}}">
       </div>
     </div>
   </div>
