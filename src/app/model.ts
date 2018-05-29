@@ -1,28 +1,30 @@
 export class Absence {
-  _dateDebut: Date;
-  _dateFin: Date;
-  _typeConge: EnumType;
-  _statut: EnumStatut;
-  _collaborateur: Collaborateur;
+  dateDebut: Date;
+  dateFin: Date;
+  typeConge: EnumType;
+  statut: EnumStatut;
+  collaborateur: Collaborateur;
 
   constructor(dateDebut, dateFin, typeConge, statut, collaborateur) {
-    this._dateDebut = dateDebut;
-    this._dateFin = dateFin;
-    this._typeConge = typeConge;
-    this._statut = statut;
-    this._collaborateur = collaborateur;
+    this.dateDebut = dateDebut;
+    this.dateFin = dateFin;
+    this.typeConge = typeConge;
+    this.statut = statut;
+    this.collaborateur = collaborateur;
   }
 }
+
 export enum EnumStatut {
   EN_ATTENTE = "EN_ATTENTE",
   INITIALE = "INITIALE",
   VALIDEE = "VALIDEE",
   REJETEE = "REJETEE"
 }
+
 export enum EnumType {
-  CONGE_PAYER = "Congés payés",
+  CONGE_PAYE = "CONGE_PAYE",
   RTT = "RTT",
-  CONGE_SANS_SOLDE = "Congés sans solde"
+  CONGE_SANS_SOLDE = "CONGE_SANS_SOLDE"
 }
 
 export class Collaborateur {
@@ -36,3 +38,26 @@ export class Collaborateur {
     this.jourCongePaye = CP;
   }
 }
+
+export const Colors: any = {
+  // En rouge
+  CONGE_SANS_SOLDE: {
+    primary: '#ad2121',
+    secondary: '#FAE3E3'
+  },
+  // En bleu
+  CONGE_PAYE: {
+    primary: '#1e90ff',
+    secondary: '#D1E8FF'
+  },
+  // En jaune
+  RTT: {
+    primary: '#e3bc08',
+    secondary: '#FDF1BA'
+  },
+  // En vert
+  FERIE: {
+    primary: '#00FF00',
+    secondary: '#76FF6B'
+  }
+};
