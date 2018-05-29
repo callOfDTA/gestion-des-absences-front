@@ -8,6 +8,7 @@ import { DemandeAbsenceComponent } from "./demande-absence/demande-absence.compo
 import { AppComponent } from "./app.component";
 import { ListeAbsenceEmployeComponent } from "./liste-absence-employe/liste-absence-employe.component";
 import { DemoComponent } from "./demo/demo.component";
+import { FormsModule } from "@angular/forms";
 
 import { AbsenceService } from "./service/absence.service";
 
