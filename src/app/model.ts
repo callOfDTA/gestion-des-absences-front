@@ -1,4 +1,5 @@
 export class Absence {
+  id:number;
   dateDebut: string;
   dateFin: string;
   typeConge: EnumType;

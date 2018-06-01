@@ -1,3 +1,54 @@
-<p>
-  modification-absence works!
-</p>
+<div class="container">
+  <h3>Modification d'absence</h3>
+  <form (ngSubmit)="submit()" #ModificationAbsenceComponent="ngForm">
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Date de début</div>
+      </div>
+      <input type="date" class="form-control" name="dateDebut" [(ngModel)]="absence.dateDebut" #dateDeDebut="ngModel" required>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Date de fin</div>
+      </div>
+      <input type="date" class="form-control" name="dateFin" [(ngModel)]="absence.dateFin" #dateDeFin="ngModel" required>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Type</div>
+      </div>
+      <select type="inputState" class="form-control" name="typeConge" [(ngModel)]="absence.typeConge" #type="ngModel" required>
+        <option value="CONGE_PAYE">congé payé</option>
+        <option value="RTT">RTT</option>
+        <option value="CONGE_SANS_SOLDE">congé sans solde</option>
+      </select>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Motif</div>
+      </div>
+      <textarea type="text" class="form-control" name="motif" [(ngModel)]="absence.motif" #type="ngModel" rows="3"></textarea>
+    </div>
+      <div *ngIf="msgError.motif != '' " class="alert alert-danger">
+        <span>{{msgError.motif}}</span>
+      </div>
+    <div *ngIf="msgError.date != '' " class="alert alert-danger">
+      <span>{{msgError.date}}</span>
+    </div>
+    <div>
+      <div *ngIf=" absence.dateDebut != null &&  absence.dateFin != null && absence.typeConge != null;else cache">
+        <button type="submit" class="btn btn-success mb-2">Valider</button>
+        <button (click)=onClickCancel(absence.collaborateur.matricule) class="btn btn-danger mb-2">Annuler</button>
+      </div>
+      <ng-template #cache>
+        <button  type="submit" class="btn btn-danger mb-2" disabled="disabled">Valider</button>
+        <button (click)=onClickCancel(absence.collaborateur.matricule) class="btn btn-danger mb-2">Annuler</button>
+      </ng-template>
+
+    </div>
+
+  </form>
+</div>
+
+
+
