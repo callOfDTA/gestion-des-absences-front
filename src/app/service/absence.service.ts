@@ -36,8 +36,12 @@ export class AbsenceService {
     return this._http.post<any>(`${URL_BACKEND}/absences/${id}`, id.valueOf());
   }
 
-  ajouterAbsence(absence: Absence): Observable<Absence> {
-    return this._http.post<Absence>(`${URL_BACKEND}/absences/nouveau`, absence);
+
+  ajouterAbsence(absence: Absence, matricule: string): Observable<Absence> {
+    return this._http.post<Absence>(
+      `${URL_BACKEND}/absences/${matricule}/nouvelle`,
+      absence
+    );
   }
 
   modifierAbsence(absence: Absence): Observable<Absence> {

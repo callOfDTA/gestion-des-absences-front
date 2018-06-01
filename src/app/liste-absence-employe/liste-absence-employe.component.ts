@@ -26,16 +26,18 @@ export class ListeAbsenceEmployeComponent implements OnInit {
     private router: Router
   ) {}
   onClickNewAbsence() {
+
     this.router.navigate(["/absences/" + this.matricule + "/nouveau"]);
   }
   onClickmodifie(id) {
     this.router.navigate(["/absences/"+ this.matricule+ "/modifier/"+ id]);
+
   }
   onClicksupprimer(id) {
     this.absenceService
       .supprimerparabsence(id)
       .subscribe(err => console.log(err));
-    this.router.navigate(["/absences/", this.matricule]);
+    this.router.navigate(["/absences/" + this.matricule]);
   }
 
   ngOnInit() {
