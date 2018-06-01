@@ -1,5 +1,7 @@
 export class Absence {
-  id: number;
+
+  id:number;
+
   dateDebut: string;
   dateFin: string;
   typeConge: EnumType;
@@ -22,7 +24,9 @@ export enum EnumType {
 }
 
 export class Collaborateur {
-  constructor(matricule: string, jourRTT: number, jourCongePaye: number) {}
+  matricule: string
+  jourRTT: number
+  jourCongePaye: number
 }
 
 export const Colors: any = {
