@@ -27,6 +27,9 @@ import { DateTimePickerComponent } from './date-time-picker/date-time-picker.com
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { ModificationAbsenceComponent } from './modification-absence/modification-absence.component';
+import { FerieComponent } from './ferie/ferie.component';
+import { NouveauFerieComponent } from './nouveau-ferie/nouveau-ferie.component';
+import { ModificationFerieComponent } from './modification-ferie/modification-ferie.component';
 
 registerLocaleData(localeFr);
 
@@ -39,6 +42,9 @@ const appRoutes: Routes = [
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent},
 
   { path: "planning", component: PlanningAbsencesComponent },
+
+  { path: "ferie", component: FerieComponent },
+  { path: "ferie/nouveau", component: NouveauFerieComponent },
 
   { path: "", redirectTo: "/demo", pathMatch: "full" },
 
@@ -54,7 +60,10 @@ const appRoutes: Routes = [
     CalendrierHeaderComponent,
     DemandeAbsenceComponent,
     DateTimePickerComponent,
-    ModificationAbsenceComponent],
+    ModificationAbsenceComponent,
+    FerieComponent,
+    NouveauFerieComponent,
+    ModificationFerieComponent],
   imports: [
     CommonModule,
     BrowserModule,

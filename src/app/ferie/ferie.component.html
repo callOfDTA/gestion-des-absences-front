@@ -1,0 +1,36 @@
+<h1>
+  Jours fériés et RTT employeurs
+</h1>
+
+<table class="mt-5 table">
+  <tr>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Jour</th>
+    <th>Commentaires</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let ferie of feries" class="ml-5">
+      <td>{{ferie.date}}</td>
+      <td>{{ferie.type}}</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 0">Lundi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 1">Mardi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 2">Mercredi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 3">Jeudi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 4">Vendredi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 5">Samedi</td>
+      <td *ngIf="ferie.jour.getUTCDay() == 6">Dimanche</td>
+      <td>{{ferie.commentaire}}</td>
+      <td class="row">
+        <div>
+          <img src="http://www.icone-png.com/png/28/27952.png" alt=modifier (click)=onClickModifie(ferie.id)>
+        </div>
+        <img src="http://www.icone-png.com/png/54/54145.png" alt=supprimer (click)=onClickSupprimer(ferie.id)>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Ajouter un jour férié ou une RTT emp :
+<button class=" btn btn-primary " (click)=onClickNewFerie()>+</button>

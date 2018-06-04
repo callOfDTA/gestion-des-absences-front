@@ -60,8 +60,8 @@ export class PlanningAbsencesComponent implements OnInit {
           if(absence.typeConge == "CONGE_PAYE") {
             this.color=Colors.CONGE_PAYE;
           }
-          if(absence.typeConge == "RTT") {
-            this.color=Colors.RTT;
+          if(absence.typeConge == "RTT_EMPLOYE") {
+            this.color=Colors.RTT_EMPLOYE;
           }
           /*si le type conge FERIE est rajouté
           if(absence.typeConge == "FERIE") {
@@ -74,8 +74,7 @@ export class PlanningAbsencesComponent implements OnInit {
             end: new Date(absence.dateFin),
             color: this.color
           }
-        )
-      }
+        )}
       )
     }
      , err => console.log(err));
