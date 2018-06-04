@@ -35,7 +35,7 @@ export class ListeAbsenceEmployeComponent implements OnInit {
   }
   onClicksupprimer(id) {
     this.absenceService
-      .supprimerparabsence(id)
+      .supprimerParAbsence(id)
       .subscribe(err => console.log(err));
     this.router.navigate(["/absences/" + this.matricule]);
   }

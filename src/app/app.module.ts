@@ -26,10 +26,14 @@ import { CalendrierHeaderComponent } from "./calendrier-header/calendrier-header
 import { DemandeAbsenceComponent } from "./demande-absence/demande-absence.component";
 
 import { AbsenceService } from "./service/absence.service";
-import { DateTimePickerComponent } from "./date-time-picker/date-time-picker.component";
-import { registerLocaleData } from "@angular/common";
-import localeFr from "@angular/common/locales/fr";
-import { ModificationAbsenceComponent } from "./modification-absence/modification-absence.component";
+
+import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { ModificationAbsenceComponent } from './modification-absence/modification-absence.component';
+import { FerieComponent } from './ferie/ferie.component';
+import { NouveauFerieComponent } from './nouveau-ferie/nouveau-ferie.component';
+import { ModificationFerieComponent } from './modification-ferie/modification-ferie.component';
 import { MenuAdministrateurComponent } from './menu-administrateur/menu-administrateur.component';
 import { ListeDesCollaborateursComponent } from './liste-des-collaborateurs/liste-des-collaborateurs.component';
 import { BandeauComponent } from './bandeau/bandeau.component';
@@ -41,9 +45,12 @@ const appRoutes: Routes = [
 
   { path: "demo", component: DemoComponent },
 
+  { path: "ferie", component: FerieComponent },
+  { path: "ferie/nouveau", component: NouveauFerieComponent },
 
+  { path: "", redirectTo: "/demo", pathMatch: "full" },
 
-   { path: "absences/:matricule/modifier/:id", component: ModificationAbsenceComponent},
+  { path: "absences/:matricule/modifier/:id", component: ModificationAbsenceComponent},
 
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent },
@@ -66,6 +73,9 @@ const appRoutes: Routes = [
     DemandeAbsenceComponent,
     DateTimePickerComponent,
     ModificationAbsenceComponent,
+    FerieComponent,
+    NouveauFerieComponent,
+    ModificationFerieComponent,
     MenuAdministrateurComponent,
     ListeDesCollaborateursComponent,
     BandeauComponent

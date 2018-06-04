@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>Nouveau jour ferié / RTT employeur</h3>
+  <form (ngSubmit)="submit()" #NouveauFerieComponent="ngForm">
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Date</div>
+      </div>
+      <input type="date" class="form-control" name="date" [(ngModel)]="ferie.date" #dateDeDebut="ngModel" required>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Type de jour</div>
+      </div>
+      <select type="inputState" class="form-control" name="type" [(ngModel)]="ferie.type" #type="ngModel" required>
+        <option value="FERIE">Ferié</option>
+        <option value="RTT_EMPLOYEUR">RTT employeur</option>
+      </select>
+    </div>
+    <div class="container-fluid">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Commentaire</div>
+      </div>
+      <textarea type="text" class="form-control" name="commentaire" [(ngModel)]="ferie.commentaire" #type="ngModel" rows="3"></textarea>
+    </div>
+      <div *ngIf="msgError.motif != '' " class="alert alert-danger">
+        <span>{{msgError.motif}}</span>
+      </div>
+    <div *ngIf="msgError.date != '' " class="alert alert-danger">
+      <span>{{msgError.date}}</span>
+    </div>
+    <div>
+      <div *ngIf="ferie.date != null && ferie.type != null;else cache">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+      <ng-template #cache>
+        <button type="submit" class="btn btn-danger mb-2" disabled="disabled">Submit</button>
+      </ng-template>
+    </div>
+  </form>
+</div>

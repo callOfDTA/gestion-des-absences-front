@@ -1,3 +1,5 @@
+import { Data } from "@angular/router";
+
 export class Absence {
 
   id:number;
@@ -10,6 +12,13 @@ export class Absence {
   motif: string;
 }
 
+export class Ferie {
+  date: string;
+  type: EnumType;
+  jour: Date;
+  commentaire: string;
+}
+
 export enum EnumStatut {
   EN_ATTENTE = "EN_ATTENTE",
   INITIALE = "INITIALE",
@@ -19,8 +28,10 @@ export enum EnumStatut {
 
 export enum EnumType {
   CONGE_PAYE = "CONGE_PAYE",
-  RTT = "RTT",
-  CONGE_SANS_SOLDE = "CONGE_SANS_SOLDE"
+  RTT_EMPLOYE = "RTT_EMPLOYE",
+  RTT_EMPLOYEUR = "RTT_EMPLOYEUR",
+  CONGE_SANS_SOLDE = "CONGE_SANS_SOLDE",
+  FERIE = "FERIE"
 }
 
 export class Collaborateur {
