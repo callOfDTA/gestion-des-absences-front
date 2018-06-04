@@ -29,9 +29,9 @@
       </div>
       <textarea type="text" class="form-control" name="motif" [(ngModel)]="absence.motif" #type="ngModel" rows="3"></textarea>
     </div>
-      <div *ngIf="msgError.motif != '' " class="alert alert-danger">
-        <span>{{msgError.motif}}</span>
-      </div>
+    <div *ngIf="msgError.motif != '' " class="alert alert-danger">
+      <span>{{msgError.motif}}</span>
+    </div>
     <div *ngIf="msgError.date != '' " class="alert alert-danger">
       <span>{{msgError.date}}</span>
     </div>
@@ -45,5 +45,3 @@
     </div>
   </form>
 </div>
-
-
