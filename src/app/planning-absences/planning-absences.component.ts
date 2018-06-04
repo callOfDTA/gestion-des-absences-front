@@ -30,7 +30,7 @@ export class PlanningAbsencesComponent implements OnInit {
   collaborateurs: Collaborateur[] = [];
   RTT: number = 0;
   cmpt: boolean = false;
-  matricule: string = "OSS117";
+  matricule: string = "";
 
   locale: string = 'fr';
 
@@ -48,6 +48,7 @@ export class PlanningAbsencesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.matricule = this._route.snapshot.paramMap.get("matricule");
     this.absenceService
     .listerAbsenceEmploye(this.matricule)
     .subscribe(abs => {

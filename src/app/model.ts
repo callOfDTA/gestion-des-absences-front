@@ -24,9 +24,17 @@ export enum EnumType {
 }
 
 export class Collaborateur {
-  matricule: string
-  jourRTT: number
-  jourCongePaye: number
+  matricule: string;
+  jourRTT: number;
+  jourCongePaye: number;
+  nom:string;
+  prenom:string;
+  role:EnumRole
+}
+export enum EnumRole {
+    ADMINISTRATEUR="admin",
+    MANAGER="manager",
+    EMPLOYE="employe"
 }
 
 export const Colors: any = {

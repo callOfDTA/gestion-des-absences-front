@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th>Matricule</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Rôle</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let c of collaborateurs" class="ml-5">
+
+      <td><a routerLink="/menu/{{c.matricule}}">{{c.matricule}}</a></td>
+      <td>{{c.nom}}</td>
+      <td>{{c.prenom}}</td>
+      <td>{{c.role}}</td>
+    </tr>
+
+  </tbody>
+</table>
