@@ -40,6 +40,11 @@ const appRoutes: Routes = [
   //{ path: "accueil", component: AccueilComponent },
 
   { path: "demo", component: DemoComponent },
+
+
+
+   { path: "absences/:matricule/modifier/:id", component: ModificationAbsenceComponent},
+
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent },
   { path: "menu/:matricule", component: BandeauComponent },

@@ -12,7 +12,7 @@ const URL_BACKEND = environment.apiUrl;
 
 @Injectable()
 export class AbsenceService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   listerAbsence(): Observable<Absence[]> {
     return this._http.get<Absence[]>(`${URL_BACKEND}/absences`);
@@ -36,10 +36,15 @@ export class AbsenceService {
     return this._http.post<any>(`${URL_BACKEND}/absences/${id}`, id.valueOf());
   }
 
+
   ajouterAbsence(absence: Absence, matricule: string): Observable<Absence> {
     return this._http.post<Absence>(
       `${URL_BACKEND}/absences/${matricule}/nouvelle`,
       absence
     );
+  }
+
+  modifierAbsence(absence: Absence): Observable<Absence> {
+    return this._http.put<Absence>(`${URL_BACKEND}/absences/${absence.collaborateur.matricule}/modifier/${absence.id}`, absence);
   }
 }
