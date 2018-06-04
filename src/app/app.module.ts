@@ -30,6 +30,9 @@ import { DateTimePickerComponent } from "./date-time-picker/date-time-picker.com
 import { registerLocaleData } from "@angular/common";
 import localeFr from "@angular/common/locales/fr";
 import { ModificationAbsenceComponent } from "./modification-absence/modification-absence.component";
+import { MenuAdministrateurComponent } from './menu-administrateur/menu-administrateur.component';
+import { ListeDesCollaborateursComponent } from './liste-des-collaborateurs/liste-des-collaborateurs.component';
+import { BandeauComponent } from './bandeau/bandeau.component';
 
 registerLocaleData(localeFr);
 
@@ -39,8 +42,9 @@ const appRoutes: Routes = [
   { path: "demo", component: DemoComponent },
   { path: "absences/:matricule", component: ListeAbsenceEmployeComponent },
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent },
-
-  { path: "planning", component: PlanningAbsencesComponent } //,
+  { path: "menu/:matricule", component: BandeauComponent },
+  { path: "accueil", component: ListeDesCollaborateursComponent },
+  { path: "absences/:matricule/planning", component: PlanningAbsencesComponent } //,
 
   // { path: "", redirectTo: "/demo", pathMatch: "full" },
 
@@ -56,7 +60,10 @@ const appRoutes: Routes = [
     CalendrierHeaderComponent,
     DemandeAbsenceComponent,
     DateTimePickerComponent,
-    ModificationAbsenceComponent
+    ModificationAbsenceComponent,
+    MenuAdministrateurComponent,
+    ListeDesCollaborateursComponent,
+    BandeauComponent
   ],
   imports: [
     CommonModule,
