@@ -1,6 +1,7 @@
 import { Data } from "@angular/router";
 
 export class Absence {
+  id: number;
   dateDebut: string;
   dateFin: string;
   typeConge: EnumType;
@@ -10,6 +11,7 @@ export class Absence {
 }
 
 export class Ferie {
+  id: number;
   date: string;
   type: EnumType;
   jour: Date;

@@ -32,10 +32,6 @@ export class AbsenceService {
     return this._http.get<Absence>(`${URL_BACKEND}/absences/${id}`);
   }
 
-  listerFerie(): Observable<Ferie[]> {
-    return this._http.get<Ferie[]>(`${URL_BACKEND}/feries`);
-  }
-
   listerAbsenceRTTEmployeur(typeConge: EnumType): Observable<Absence[]> {
     return this._http.get<Absence[]>(`${URL_BACKEND}/absences?conge=${typeConge}`);
   }
@@ -44,15 +40,7 @@ export class AbsenceService {
     return this._http.post<any>(`${URL_BACKEND}/absences/${id}`, id.valueOf());
   }
 
-  supprimerParJourFerie(id): Observable<any> {
-    return this._http.post<any>(`${URL_BACKEND}/feries/${id}`, id.valueOf());
-  }
-
   ajouterAbsence(absence:Absence):Observable<Absence> {
     return this._http.post<Absence>(`${URL_BACKEND}/absences/nouveau`, absence);
-  }
-
-  ajouterJourFerie(ferie:Ferie):Observable<Ferie> {
-    return this._http.post<Ferie>(`${URL_BACKEND}/feries/nouveau`, ferie);
   }
 }

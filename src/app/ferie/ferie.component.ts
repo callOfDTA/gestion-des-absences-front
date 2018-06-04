@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Absence, Ferie, EnumType } from "../model";
 import { AbsenceService } from "../service/absence.service";
+import { FerieService } from "../service/ferie.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import {
   RouterModule,
@@ -28,6 +29,7 @@ export class FerieComponent implements OnInit {
 
   constructor(
     private absenceService: AbsenceService,
+    private ferieService: FerieService,
     private _route: ActivatedRoute,
     private router: Router
   ) { }
@@ -40,7 +42,7 @@ export class FerieComponent implements OnInit {
     this.router.navigate(["/ferie/modifie/", id]);
   }
   onClickSupprimer(id) {
-    this.absenceService
+    this.ferieService
       .supprimerParJourFerie(id)
       .subscribe(err => console.log(err));
     this.router.navigate(["/ferie"]);
@@ -48,19 +50,23 @@ export class FerieComponent implements OnInit {
 
   ngOnInit() {
     // Récupération des jours fériés pour les insérer dans le tableau feries
-    this.absenceService
+    this.ferieService
       .listerFerie()
       .subscribe(cols => {
         cols.forEach(
           ferie => {
             this.feries.push(
             {
+              id: ferie.id,
               date: ferie.date,
               type: EnumType.FERIE,
               jour: new Date(ferie.date),
               commentaire: ferie.commentaire
-            }
-          )}
+            })
+          // Tri des jours fériés par date
+          this.feries.sort(function(a: any, b: any) {
+            return a.jour - b.jour;
+          })}
         )
       }, err => console.log(err));
 
@@ -73,12 +79,13 @@ export class FerieComponent implements OnInit {
           absence => {
             this.feries.push(
             {
+              id: absence.id,
               date: absence.dateDebut,
               type: absence.typeConge,
               jour: new Date(absence.dateDebut),
               commentaire: absence.motif
             });
-            // Tri des jours fériés et RTT par date
+            // Tri des RTT par date
             this.feries.sort(function(a: any, b: any) {
               return a.jour - b.jour;
             })

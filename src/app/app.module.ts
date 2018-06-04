@@ -19,10 +19,11 @@ import { ListeAbsenceEmployeComponent } from "./liste-absence-employe/liste-abse
 import { DemoComponent } from "./demo/demo.component";
 import { PlanningAbsencesComponent } from './planning-absences/planning-absences.component';
 import { CalendrierHeaderComponent } from './calendrier-header/calendrier-header.component';
-
 import { DemandeAbsenceComponent } from "./demande-absence/demande-absence.component";
 
 import { AbsenceService } from "./service/absence.service";
+import { FerieService } from "./service/ferie.service";
+
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -73,7 +74,7 @@ const appRoutes: Routes = [
     NgbDatepickerModule.forRoot(),
     NgbTimepickerModule.forRoot(),
     CalendarModule.forRoot()],
-  providers: [AbsenceService],
+  providers: [AbsenceService, FerieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
