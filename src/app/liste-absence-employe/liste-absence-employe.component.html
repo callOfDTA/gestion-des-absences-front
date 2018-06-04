@@ -1,4 +1,5 @@
 <router-outlet></router-outlet>
+<app-menu-administrateur></app-menu-administrateur>
 <h1>Mes Absences</h1>
 
 <table class="table">
@@ -18,9 +19,9 @@
       <td>{{a.statut}}</td>
       <td class="row">
         <div *ngIf="a.statut == 'INITIALE' && a.type != 'MISSION'">
-          <img src="http://www.icone-png.com/png/28/27952.png" alt=modifier (click)=onClickmodifie(a.id)>
+          <img src="http://www.icone-png.com/png/28/27952.png" alt=modifier (click)=onClickmodifie(a.id) >
         </div>
-        <img src="http://www.icone-png.com/png/54/54145.png" alt=supprimer (click)=onClicksupprimer(a.id)>
+        <img src="http://www.icone-png.com/png/54/54145.png" alt=supprimer (click)=onClicksupprimer(a.id) routerLink="/demo">
       </td>
     </tr>
 
