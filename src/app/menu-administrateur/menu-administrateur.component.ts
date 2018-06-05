@@ -41,6 +41,9 @@ export class MenuAdministrateurComponent implements OnInit {
   onClickPanningAbsenceEmploye(){
     this.router.navigate(["/absences/" + this.matricule + "/planning/"]);
   }
+  onClickJourFerie(){
+    this.router.navigate(["/ferie/" + this.matricule]);
+  }
   deconnexion(){
     this.router.navigate(["/accueil"]);
   }

@@ -37,6 +37,7 @@ import { ModificationFerieComponent } from './modification-ferie/modification-fe
 import { MenuAdministrateurComponent } from './menu-administrateur/menu-administrateur.component';
 import { ListeDesCollaborateursComponent } from './liste-des-collaborateurs/liste-des-collaborateurs.component';
 import { BandeauComponent } from './bandeau/bandeau.component';
+import { FerieService } from "./service/ferie.service";
 
 registerLocaleData(localeFr);
 
@@ -45,9 +46,9 @@ const appRoutes: Routes = [
 
   { path: "demo", component: DemoComponent },
 
-  { path: "ferie", component: FerieComponent },
-  { path: "ferie/nouveau", component: NouveauFerieComponent },
-
+  { path: "ferie/:matricule", component: FerieComponent },
+  { path: "ferie/:matricule/nouveau", component: NouveauFerieComponent },
+  { path : "ferie/modifier/:id", component: ModificationFerieComponent},
   { path: "", redirectTo: "/demo", pathMatch: "full" },
 
   { path: "absences/:matricule/modifier/:id", component: ModificationAbsenceComponent},
@@ -56,11 +57,11 @@ const appRoutes: Routes = [
   { path: "absences/:matricule/nouvelle", component: DemandeAbsenceComponent },
   { path: "menu/:matricule", component: BandeauComponent },
   { path: "accueil", component: ListeDesCollaborateursComponent },
-  { path: "absences/:matricule/planning", component: PlanningAbsencesComponent } //,
+  { path: "absences/:matricule/planning", component: PlanningAbsencesComponent } ,
 
-  // { path: "", redirectTo: "/demo", pathMatch: "full" },
+ { path: "", redirectTo: "/accueil", pathMatch: "full" },
 
-  // { path: "**", redirectTo: "/demo", pathMatch: "full" } // page non trouvée
+ { path: "**", redirectTo: "/accueil", pathMatch: "full" } // page non trouvée
 ];
 
 @NgModule({
@@ -90,7 +91,7 @@ const appRoutes: Routes = [
     NgbTimepickerModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [AbsenceService],
+  providers: [AbsenceService,FerieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
