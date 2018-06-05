@@ -59,7 +59,7 @@ export const Colors: any = {
     secondary: "#D1E8FF"
   },
   // En jaune
-  RTT: {
+  RTT_EMPLOYE: {
     primary: "#e3bc08",
     secondary: "#FDF1BA"
   },

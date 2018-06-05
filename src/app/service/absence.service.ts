@@ -5,13 +5,19 @@ import { HttpHeaders } from "@angular/common/http";
 import { Observable, Subject, ReplaySubject } from "rxjs";
 import { Absence, EnumStatut, EnumType, Collaborateur, Ferie, Colors } from "../model";
 
-import { map } from "rxjs/operators";
+import { map, filter, tap } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 
 const URL_BACKEND = environment.apiUrl;
 
 @Injectable()
 export class AbsenceService {
+  private subjectAbsence = new ReplaySubject<Absence>(3);
+
+  get subjectAbsenceObs() {
+    return this.subjectAbsence.asObservable();
+  }
+
   constructor(private _http: HttpClient) { }
 
   listerAbsence(): Observable<Absence[]> {
@@ -40,9 +46,23 @@ export class AbsenceService {
     return this._http.post<any>(`${URL_BACKEND}/absences/${id}`, id.valueOf());
   }
 
-  ajouterAbsence(absence:Absence):Observable<Absence> {
-    return this._http.post<Absence>(`${URL_BACKEND}/absences/nouveau`, absence);
+  ajouterAbsence(absence: Absence, matricule: string): Observable<Absence> {
+    return this._http.post<Absence>(
+      `${URL_BACKEND}/absences/${matricule}/nouvelle`,
+      absence
+    );
   }
+
+  /*ajouterAbsenceRTT(absence: Absence, ): Observable<Absence> {
+    return this._http
+      .post<Absence>(`${URL_BACKEND}/absences/${collaborateurs.matricule}/nouvelle}`,
+        absence)
+      .pipe(
+        tap(col => {
+          this.subjectAbsence.next(new Absence());
+        })
+      );
+  */
 
   modifierAbsence(absence: Absence): Observable<Absence> {
     return this._http.put<Absence>(`${URL_BACKEND}/absences/${absence.collaborateur.matricule}/modifier/${absence.id}`, absence);

@@ -27,7 +27,7 @@ export class ListeAbsenceEmployeComponent implements OnInit {
   ) {}
   onClickNewAbsence() {
 
-    this.router.navigate(["/absences/" + this.matricule + "/nouveau"]);
+    this.router.navigate(["/absences/" + this.matricule + "/nouvelle"]);
   }
   onClickmodifie(id) {
     this.router.navigate(["/absences/"+ this.matricule+ "/modifier/"+ id]);
