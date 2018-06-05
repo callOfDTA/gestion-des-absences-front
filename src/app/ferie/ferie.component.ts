@@ -9,6 +9,7 @@ import {
   ParamMap,
   Router
 } from "@angular/router";
+import { FerieService } from '../service/ferie.service';
 
 @Component({
   selector: 'app-ferie',
@@ -27,34 +28,36 @@ export class FerieComponent implements OnInit {
   }
 
   constructor(
-    private absenceService: AbsenceService,
+    private ferieServ: FerieService,
+    private absenceService : AbsenceService,
     private _route: ActivatedRoute,
     private router: Router
   ) { }
 
   onClickNewFerie() {
-    this.router.navigate(["/ferie/nouveau"]);
+    this.router.navigate(["/ferie/" + this._route.snapshot.paramMap.get("matricule") + "/nouveau"]);
   }
 
   onClickModifie(id) {
-    this.router.navigate(["/ferie/modifie/", id]);
+    this.router.navigate(["/ferie/modifier/", id]);
   }
   onClickSupprimer(id) {
-    this.absenceService
+    this.ferieServ
       .supprimerParJourFerie(id)
       .subscribe(err => console.log(err));
-    this.router.navigate(["/ferie"]);
+    this.router.navigate(["/ferie/" + this._route.snapshot.paramMap.get("matricule")]);
   }
 
   ngOnInit() {
     // Récupération des jours fériés pour les insérer dans le tableau feries
-    this.absenceService
+    this.ferieServ
       .listerFerie()
       .subscribe(cols => {
         cols.forEach(
           ferie => {
             this.feries.push(
             {
+              id:ferie.id,
               date: ferie.date,
               type: EnumType.FERIE,
               jour: new Date(ferie.date),
@@ -73,6 +76,7 @@ export class FerieComponent implements OnInit {
           absence => {
             this.feries.push(
             {
+              id: absence.id,
               date: absence.dateDebut,
               type: absence.typeConge,
               jour: new Date(absence.dateDebut),
@@ -86,4 +90,5 @@ export class FerieComponent implements OnInit {
         )
       }, err => console.log(err));
   }
+
 }

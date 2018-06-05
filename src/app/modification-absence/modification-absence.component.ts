@@ -32,6 +32,7 @@ export class ModificationAbsenceComponent implements OnInit {
       .modifierAbsence(this.absence)
       .subscribe((a:Absence) => {
         this.absence = a;
+        console.log(this.absence)
         this.onClickRedirect();
       }, (err: HttpErrorResponse) => {
         if (err.error == "Erreur : La date de fin doit être supérieur à la date de début"){

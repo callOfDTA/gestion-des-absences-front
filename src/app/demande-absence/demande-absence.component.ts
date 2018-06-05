@@ -58,4 +58,7 @@ export class DemandeAbsenceComponent implements OnInit {
       }
     );
   }
+  onClickRedirect(){
+    this.router.navigate(["/absences/"+this.matricule]);
+  }
 }

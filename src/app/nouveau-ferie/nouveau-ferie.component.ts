@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Absence, Ferie, EnumType } from "../model";
 import { AbsenceService } from "../service/absence.service";
 import { HttpErrorResponse } from "@angular/common/http";
+import { ActivatedRoute, Router } from '@angular/router';
+import { FerieService } from '../service/ferie.service';
 
 @Component({
   selector: 'app-nouveau-ferie',
@@ -20,14 +22,16 @@ export class NouveauFerieComponent implements OnInit {
   }
 
   constructor(
-    private absenceService: AbsenceService,
+    private ferieServ: FerieService,
+    private _route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
   submit() {
-    this.absenceService
+    this.ferieServ
       .ajouterJourFerie(this.ferie)
       .subscribe(a => {
         console.log(this.absence);
@@ -37,5 +41,8 @@ export class NouveauFerieComponent implements OnInit {
           this.msgError.date = err.error;
         }
       });
+  }
+  onClickRedirect (){
+    this.router.navigate(["/ferie/" + this._route.snapshot.paramMap.get("matricule")]);
   }
 }

@@ -38,9 +38,11 @@
     <div>
       <div *ngIf=" absence.dateDebut != null &&  absence.dateFin != null && absence.typeConge != null && absence.dateFin > absence.dateDebut;else cache">
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        <button (click)=onClickRedirect() class="btn btn-danger mb-2">Annuler</button>
       </div>
       <ng-template #cache>
         <button type="submit" class="btn btn-danger mb-2" disabled="disabled">Submit</button>
+        <button (click)=onClickRedirect() class="btn btn-danger mb-2">Annuler</button>
       </ng-template>
     </div>
   </form>
